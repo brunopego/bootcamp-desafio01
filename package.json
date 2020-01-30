@@ -1,0 +1,17 @@
+{
+  "name": "desafio01",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/brunopego/bootcamp-desafio01.git",
+  "author": "Bruno Lacerda <brunolcpg@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "dev": "nodemon index.js"
+ },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

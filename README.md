@@ -53,4 +53,4 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 ---
 
-Feito com ♥ by Bruno Lacerda :wave: [Get in touch!](https://www.linkedin.com/in/brunolacerdapego/)
+Made with ♥ by Bruno Lacerda :wave: [Get in touch!](https://www.linkedin.com/in/brunolacerdapego/)

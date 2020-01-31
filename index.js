@@ -6,6 +6,11 @@ server.use(express.json());
 
 const projects = [];
 
+server.use((req, res, next) => {
+    console.count("Number of requisitions");
+    return next();
+});
+
 server.post('/projects', (req, res) => {
     const { id, title } = req.body;
 

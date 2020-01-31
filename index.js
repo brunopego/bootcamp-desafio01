@@ -32,13 +32,23 @@ server.post('/projects/:id/tasks', (req, res) => {
     project.tasks.push(title);
 
     return res.json(project);
-    
+
 });
 
 server.get('/projects', (req, res) => {
     return res.json(projects);
 });
 
+server.put('/projects/:id', (req, res) => {
+    const { id } = req.params;
+    const { title } = req.body;
 
+    const project = projects.find(proj => proj.id == id);
+
+    project.title = title;
+
+    return res.json(project);
+
+});
 
 server.listen(3000);

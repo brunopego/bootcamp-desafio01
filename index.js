@@ -11,6 +11,16 @@ server.use((req, res, next) => {
     return next();
 });
 
+function checkProjectExistsById(req, res, next) {
+    const project =  projects.find(proj => proj.id == req.params.id);
+    
+    if(!project) {
+        return res.status(400).json({ "error": "The project doesn't exist" });
+    }
+
+    return next();
+}
+
 server.post('/projects', (req, res) => {
     const { id, title } = req.body;
 
@@ -28,7 +38,7 @@ server.post('/projects', (req, res) => {
 
 });
 
-server.post('/projects/:id/tasks', (req, res) => {
+server.post('/projects/:id/tasks', checkProjectExistsById, (req, res) => {
     const { id } = req.params;
     const { title } = req.body;
 
@@ -44,7 +54,7 @@ server.get('/projects', (req, res) => {
     return res.json(projects);
 });
 
-server.put('/projects/:id', (req, res) => {
+server.put('/projects/:id', checkProjectExistsById, (req, res) => {
     const { id } = req.params;
     const { title } = req.body;
 
@@ -56,7 +66,7 @@ server.put('/projects/:id', (req, res) => {
 
 });
 
-server.delete('/projects/:id', (req, res) => {
+server.delete('/projects/:id', checkProjectExistsById, (req, res) => {
     const { id } = req.params;
 
     const projIndex = projects.findIndex(proj => proj.id == id);
